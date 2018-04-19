@@ -1,5 +1,6 @@
 ﻿using Microsoft.Owin;
 using Owin;
+using System;
 
 [assembly: OwinStartupAttribute(typeof(AngularJsDemo.Startup))]
 namespace AngularJsDemo
@@ -8,7 +9,12 @@ namespace AngularJsDemo
     {
         public void Configuration(IAppBuilder app)
         {
-            ConfigureAuth(app);
+            try
+            {
+                ConfigureAuth(app);
+            }
+            catch(Exception ex)
+            { }
         }
     }
 }
